@@ -1,7 +1,7 @@
 class VehiculosController < ApplicationController
     def index
-        @vehiculos = Vehiculo.all.order(created_at: :desc)
-      end
+        @vehiculos = Vehiculo.all.page(params[:page]) 
+    end
     
       def show
         @vehiculo = Vehiculo.find(params[:id])
