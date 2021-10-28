@@ -1,8 +1,12 @@
 class VehiculosController < ApplicationController
     def index
-        Vehiculo.all.count.to_i > params[:pagina].to_i ?
-            @vehiculos = Vehiculo.all.order(created_at: :desc).per_page_kaminari(params[:pagina]) :
-            @vehiculos = Vehiculo.all.order(created_at: :desc)
+        @vehiculos =
+        if params[:buscar]
+            Vehiculo.where('titulo ILIKE ?', "%#{params[:buscar]}%").order(created_at: :desc).per_page_kaminari(params[:pagina]) ||
+            Vehiculo.where('descripcion ILIKE ?', "%#{params[:buscar]}%").order(created_at: :desc).per_page_kaminari(params[:pagina])
+        else
+            Vehiculo.all.order(created_at: :desc).per_page_kaminari(params[:pagina])
+        end
     end
     
       def show
@@ -30,7 +34,7 @@ class VehiculosController < ApplicationController
       def update
         @vehiculo = Vehiculo.find(params[:id])
     
-        if @vehiculo.update(article_params)
+        if @vehiculo.update(vehiculo_params)
           redirect_to @vehiculo
         else
           render :edit
