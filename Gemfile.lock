@@ -1,10 +1,27 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: e58b15f5e9e0044b43cd2229bb46877aa64c104c
+  revision: ee0d2a73e77a0f9c295880a036a60d47b3a8dacd
   branch: master
   specs:
     faker (2.19.0)
       i18n (>= 1.6, < 2)
+
+GIT
+  remote: https://github.com/kaminari/kaminari
+  revision: 73b93405b95615b5ad3f53c3dffe419a59890cad
+  specs:
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -95,18 +112,6 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    kaminari (1.2.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.1)
-      kaminari-activerecord (= 1.2.1)
-      kaminari-core (= 1.2.1)
-    kaminari-actionview (1.2.1)
-      actionview
-      kaminari-core (= 1.2.1)
-    kaminari-activerecord (1.2.1)
-      activerecord
-      kaminari-core (= 1.2.1)
-    kaminari-core (1.2.1)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -224,7 +229,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   faker!
   jbuilder (~> 2.7)
-  kaminari
+  kaminari!
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

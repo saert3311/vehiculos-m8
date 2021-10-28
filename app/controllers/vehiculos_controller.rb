@@ -1,6 +1,8 @@
 class VehiculosController < ApplicationController
     def index
-        @vehiculos = Vehiculo.all.page(params[:page]) 
+        Vehiculo.all.count.to_i > params[:pagina].to_i ?
+            @vehiculos = Vehiculo.all.order(created_at: :desc).per_page_kaminari(params[:pagina]) :
+            @vehiculos = Vehiculo.all.order(created_at: :desc)
     end
     
       def show
