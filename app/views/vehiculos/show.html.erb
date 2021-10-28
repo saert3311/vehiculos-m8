@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+        <div class="mb-3">
+            <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1"><%= @vehiculo.titulo %></h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2"><%= @vehiculo.created_at.strftime("%m de %B") %></div>
+                                <%= link_to "Editar", edit_vehiculo_path(@vehiculo), class: "btn btn-secondary btn-sm" %>
+    <%= link_to "Eliminar", vehiculo_path(@vehiculo), class: "btn btn-danger btn-sm",
+        method: :delete,
+        data: {confirm: "Estas seguro?"}  %>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4">
+                        <%= @vehiculo.img.attached? ? 
+                        image_tag(@vehiculo.img, class: "img-fluid rounded", style: "width: 900px; height: 400px; object-fit: cover;") : 
+                        image_tag('https://picsum.photos/900/400?random=' + @vehiculo.id.to_s, class: 'img-fluid rounded') %></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4"><%= @vehiculo.descripcion %></p>
+                        </section>
+                    </article>
+</div>
+</div>

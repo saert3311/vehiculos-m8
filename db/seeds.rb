@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+for v in 1..100 do
+    t = Faker::Vehicle.make_and_model
+    d = Faker::Vehicle.standard_specs
+    Vehiculo.create({titulo: t, descripcion: d})
+end
